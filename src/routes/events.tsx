@@ -6,7 +6,7 @@ import { events, categories } from "@/data/events";
 
 type S = { q?: string; cat?: string };
 export const Route = createFileRoute("/events")({
-  validateSearch: (s: Record<string, unknown>): S => ({ q: typeof s.q === "string" ? s.q : "", cat: typeof s.cat === "string" ? s.cat : "All" }),
+  validateSearch: (s: Record<string, unknown>): S => ({ q: typeof s["q"] === "string" ? s["q"] : "", cat: typeof s["cat"] === "string" ? s["cat"] : "All" }),
   head: () => ({ meta: [
     { title: "All Events — Tiketi Zambia" },
     { name: "description", content: "Browse upcoming concerts, festivals, comedy shows and sports events in Zambia." },
