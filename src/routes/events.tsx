@@ -4,7 +4,7 @@ import { Layout } from "@/components/Layout";
 import { EventCard } from "@/components/EventCard";
 import { events, categories } from "@/data/events";
 
-type S = { q: string; cat: string };
+type S = { q?: string; cat?: string };
 export const Route = createFileRoute("/events")({
   validateSearch: (s: Record<string, unknown>): S => ({ q: typeof s.q === "string" ? s.q : "", cat: typeof s.cat === "string" ? s.cat : "All" }),
   head: () => ({ meta: [
@@ -23,7 +23,7 @@ function EventsPage() {
 }
 
 function EventsList() {
-  const { q, cat } = Route.useSearch();
+  const { q = "", cat = "All" } = Route.useSearch();
   const nav = Route.useNavigate();
   const list = events.filter((e) => (cat === "All" || e.category === cat) &&
     `${e.title} ${e.venue} ${e.city}`.toLowerCase().includes(q.toLowerCase()));
