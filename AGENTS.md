@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Source exports
+- Keep alternate-framework source exports separate from the TanStack application and assemble them in temporary staging; this preserves the supported live preview while providing portable downloads.
